@@ -1,0 +1,1252 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Academic Guidance - ShikshaSathi</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Raleway:wght@700;800&display=swap"
+        rel="stylesheet">
+    <style>
+        :root {
+            --primary: #4361ee;
+            --secondary: #f72585;
+            --accent: #4cc9f0;
+            --light: #f8f9fa;
+            --dark: #212529;
+            --success: #2ec4b6;
+            --warning: #ff9f1c;
+            --transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            --shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            --border-radius: 16px;
+            --gradient-primary: linear-gradient(135deg, var(--primary) 0%, #3a0ca3 100%);
+            --gradient-secondary: linear-gradient(135deg, var(--secondary) 0%, #b5179e 100%);
+            --gradient-accent: linear-gradient(135deg, var(--accent) 0%, #4895ef 100%);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: "Poppins", sans-serif;
+            color: var(--dark);
+            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+            line-height: 1.7;
+            overflow-x: hidden;
+            position: relative;
+        }
+
+        body:before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background:
+                radial-gradient(circle at 10% 20%, rgba(67, 97, 238, 0.05) 0%, transparent 20%),
+                radial-gradient(circle at 90% 80%, rgba(247, 37, 133, 0.05) 0%, transparent 20%);
+            z-index: -1;
+            pointer-events: none;
+        }
+
+        h1,
+        h2,
+        h3,
+        h4,
+        h5 {
+            font-family: "Raleway", sans-serif;
+            font-weight: 700;
+            color: var(--dark);
+            line-height: 1.2;
+        }
+
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            background: var(--gradient-secondary);
+            color: white;
+            padding: 14px 36px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: var(--transition);
+            border: none;
+            cursor: pointer;
+            box-shadow: var(--shadow);
+            font-size: 1.05rem;
+            letter-spacing: 0.5px;
+            position: relative;
+            overflow: hidden;
+            z-index: 1;
+            gap: 8px;
+        }
+
+        .btn:before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 0;
+            height: 100%;
+            background: var(--gradient-primary);
+            transition: width 0.5s ease;
+            z-index: -1;
+        }
+
+        .btn:hover:before {
+            width: 100%;
+        }
+
+        .btn:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 30px rgba(247, 37, 133, 0.3);
+        }
+
+        .btn-primary {
+            background: var(--gradient-primary);
+        }
+
+        .btn-primary:before {
+            background: var(--gradient-secondary);
+        }
+
+        .btn-outline {
+            background: transparent;
+            border: 2px solid var(--primary);
+            color: var(--primary);
+            box-shadow: none;
+        }
+
+        .btn-outline:hover {
+            background: var(--primary);
+            color: white;
+        }
+
+        section {
+            padding: 100px 0;
+        }
+
+        .section-header {
+            text-align: center;
+            max-width: 700px;
+            margin: 0 auto 70px;
+            position: relative;
+        }
+
+        .section-header h2 {
+            font-size: 2.8rem;
+            margin-bottom: 20px;
+            position: relative;
+            display: inline-block;
+            background: var(--gradient-primary);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+
+        .section-header h2:after {
+            content: '';
+            position: absolute;
+            width: 80px;
+            height: 4px;
+            background: var(--accent);
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            border-radius: 2px;
+        }
+
+        .section-header p {
+            font-size: 1.2rem;
+            color: #555;
+        }
+
+        /* Header Styles */
+        header {
+            position: fixed;
+            width: 100%;
+            top: 0;
+            left: 0;
+            z-index: 1000;
+            background: rgba(255, 255, 255, 0.98);
+            backdrop-filter: blur(10px);
+            box-shadow: 0 2px 15px rgba(0, 0, 0, 0.05);
+            transition: var(--transition);
+        }
+
+        .header-scrolled {
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
+        }
+
+        .header-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 0;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            text-decoration: none;
+        }
+
+        .logo-icon {
+            width: 50px;
+            height: 50px;
+            background: var(--gradient-primary);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 12px;
+            box-shadow: var(--shadow);
+        }
+
+        .logo-icon i {
+            font-size: 1.8rem;
+            color: white;
+        }
+
+        .logo-text {
+            font-size: 1.8rem;
+            font-weight: 800;
+            background: var(--gradient-primary);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            letter-spacing: -0.5px;
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+        }
+
+        nav ul li {
+            margin: 0 12px;
+        }
+
+        nav ul li a {
+            text-decoration: none;
+            color: var(--dark);
+            font-weight: 500;
+            font-size: 1.05rem;
+            transition: var(--transition);
+            position: relative;
+            padding: 8px 0;
+        }
+
+        nav ul li a:after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 3px;
+            background: var(--accent);
+            bottom: 0;
+            left: 0;
+            transition: var(--transition);
+            border-radius: 2px;
+        }
+
+        nav ul li a:hover:after,
+        nav ul li a.active:after {
+            width: 100%;
+        }
+
+        .header-btns {
+            display: flex;
+            gap: 15px;
+        }
+
+        .mobile-toggle {
+            display: none;
+            font-size: 1.8rem;
+            color: var(--primary);
+            cursor: pointer;
+        }
+
+        /* Page Hero */
+        .page-hero {
+            background: linear-gradient(135deg, rgba(67, 97, 238, 0.95) 0%, rgba(58, 12, 163, 0.9) 100%);
+            color: white;
+            padding: 180px 0 100px;
+            text-align: center;
+            position: relative;
+            clip-path: polygon(0 0, 100% 0, 100% 90%, 0 100%);
+            margin-top: 80px;
+        }
+
+        .page-hero h1 {
+            font-size: 3.5rem;
+            margin-bottom: 20px;
+            color: white;
+        }
+
+        .page-hero p {
+            font-size: 1.3rem;
+            max-width: 700px;
+            margin: 0 auto;
+            opacity: 0.9;
+        }
+
+        /* Guidance Content */
+        .guidance-section {
+            position: relative;
+            background: white;
+            border-radius: var(--border-radius);
+            box-shadow: var(--shadow);
+            padding: 60px;
+            margin-top: -50px;
+            z-index: 2;
+        }
+
+        .guidance-tabs {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+            margin-bottom: 40px;
+        }
+
+        .guidance-tab {
+            padding: 12px 25px;
+            background: rgba(67, 97, 238, 0.1);
+            color: var(--primary);
+            border-radius: 50px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+
+        .guidance-tab.active {
+            background: var(--gradient-primary);
+            color: white;
+        }
+
+        .guidance-content {
+            display: none;
+        }
+
+        .guidance-content.active {
+            display: block;
+            animation: fadeIn 0.5s ease;
+        }
+
+        .guidance-item {
+            margin-bottom: 50px;
+        }
+
+        .guidance-item h3 {
+            font-size: 1.8rem;
+            margin-bottom: 20px;
+            color: var(--primary);
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .guidance-item h3 i {
+            width: 50px;
+            height: 50px;
+            background: var(--gradient-primary);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.2rem;
+        }
+
+        .guidance-item p {
+            margin-bottom: 20px;
+            font-size: 1.1rem;
+        }
+
+        .guidance-item ul {
+            margin-left: 30px;
+            margin-bottom: 20px;
+        }
+
+        .guidance-item ul li {
+            margin-bottom: 10px;
+            position: relative;
+            padding-left: 25px;
+        }
+
+        .guidance-item ul li:before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 10px;
+            width: 10px;
+            height: 10px;
+            background: var(--accent);
+            border-radius: 50%;
+        }
+
+        .resource-card {
+            background: rgba(76, 201, 240, 0.1);
+            border-radius: var(--border-radius);
+            padding: 25px;
+            margin-bottom: 20px;
+            border-left: 5px solid var(--accent);
+        }
+
+        .resource-card h4 {
+            font-size: 1.3rem;
+            margin-bottom: 10px;
+            color: var(--dark);
+        }
+
+        .resource-card p {
+            margin-bottom: 15px;
+        }
+
+        .resource-card .btn {
+            padding: 8px 20px;
+            font-size: 0.95rem;
+        }
+
+        /* FAQ Section */
+        .faq-section {
+            background: #f8f9fa;
+            border-radius: var(--border-radius);
+            padding: 50px;
+            margin-top: 50px;
+        }
+
+        .faq-item {
+            margin-bottom: 20px;
+            border-radius: var(--border-radius);
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+        }
+
+        .faq-question {
+            background: white;
+            padding: 20px 25px;
+            font-weight: 600;
+            font-size: 1.1rem;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            transition: var(--transition);
+        }
+
+        .faq-question:hover {
+            color: var(--primary);
+        }
+
+        .faq-question i {
+            transition: var(--transition);
+        }
+
+        .faq-question.active i {
+            transform: rotate(180deg);
+        }
+
+        .faq-answer {
+            background: white;
+            padding: 0 25px;
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease;
+        }
+
+        .faq-answer.active {
+            padding: 0 25px 25px;
+            max-height: 500px;
+        }
+
+        /* Expert Section */
+        .expert-section {
+            margin-top: 70px;
+        }
+
+        .expert-card {
+            background: white;
+            border-radius: var(--border-radius);
+            padding: 30px;
+            box-shadow: var(--shadow);
+            display: flex;
+            gap: 30px;
+            align-items: center;
+        }
+
+        .expert-img {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            background: var(--gradient-primary);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 3rem;
+            font-weight: bold;
+            flex-shrink: 0;
+        }
+
+        .expert-info h3 {
+            font-size: 1.8rem;
+            margin-bottom: 10px;
+        }
+
+        .expert-info p.position {
+            color: var(--primary);
+            font-weight: 600;
+            margin-bottom: 15px;
+        }
+
+        .expert-info p.bio {
+            margin-bottom: 20px;
+        }
+
+        /* Call to Action */
+        .guidance-cta {
+            background: var(--gradient-accent);
+            color: white;
+            text-align: center;
+            padding: 100px 0;
+            margin-top: 100px;
+            clip-path: polygon(0 15%, 100% 0, 100% 85%, 0 100%);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .guidance-cta:before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background:
+                radial-gradient(circle at 20% 30%, rgba(255, 255, 255, 0.1) 0%, transparent 40%),
+                radial-gradient(circle at 80% 70%, rgba(255, 255, 255, 0.1) 0%, transparent 40%);
+            pointer-events: none;
+        }
+
+        .guidance-cta h2 {
+            color: white;
+            margin-bottom: 30px;
+            font-size: 3rem;
+            text-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        .guidance-cta p {
+            max-width: 700px;
+            margin: 0 auto 40px;
+            font-size: 1.3rem;
+            opacity: 0.9;
+        }
+
+        /* Footer */
+        footer {
+            background: var(--dark);
+            color: rgba(255, 255, 255, 0.8);
+            padding: 120px 0 40px;
+            position: relative;
+            clip-path: polygon(0 10%, 100% 0, 100% 100%, 0 100%);
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+            gap: 46px;
+            margin-bottom: 70px;
+        }
+
+        .footer-col h3 {
+            color: white;
+            margin-bottom: 25px;
+            font-size: 1.5rem;
+            position: relative;
+            padding-bottom: 15px;
+        }
+
+        .footer-col h3:after {
+            content: '';
+            position: absolute;
+            width: 50px;
+            height: 3px;
+            background: var(--accent);
+            bottom: 0;
+            left: 0;
+        }
+
+        .footer-links {
+            list-style: none;
+        }
+
+        .footer-links li {
+            margin-bottom: 15px;
+        }
+
+        .footer-links a {
+            color: rgba(255, 255, 255, 0.7);
+            text-decoration: none;
+            transition: var(--transition);
+            display: inline-block;
+        }
+
+        .footer-links a:hover {
+            color: var(--accent);
+            transform: translateX(5px);
+        }
+
+        .social-links {
+            display: flex;
+            gap: 7px;
+            margin-top: 25px;
+        }
+
+        .social-links a {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 45px;
+            height: 45px;
+            background: rgba(255, 255, 255, 0.1);
+            color: white;
+            border-radius: 50%;
+            transition: var(--transition);
+            text-decoration: none;
+            font-size: 1.2rem;
+        }
+
+        .social-links a:hover {
+            background: var(--accent);
+            transform: translateY(-5px);
+        }
+
+        .footer-bottom {
+            padding-top: 40px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+
+        .footer-bottom p {
+            margin: 0;
+            color: rgba(255, 255, 255, 0.6);
+        }
+
+        .powered-by {
+            color: rgba(255, 255, 255, 0.6);
+        }
+
+        .powered-by a {
+            color: var(--accent);
+            text-decoration: none;
+            transition: var(--transition);
+        }
+
+        .powered-by a:hover {
+            color: white;
+        }
+
+        .mobile-btn {
+            display: none;
+        }
+
+        /* Animation Elements */
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Responsive Design */
+        @media (max-width: 992px) {
+            .section-header h2 {
+                font-size: 2.5rem;
+            }
+
+            .page-hero h1 {
+                font-size: 2.8rem;
+            }
+
+            .guidance-section {
+                padding: 40px;
+            }
+
+            .expert-card {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .mobile-btn {
+                display: block;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .mobile-toggle {
+                display: block;
+            }
+
+            nav {
+                position: fixed;
+                top: 80px;
+                right: -100%;
+                width: 80%;
+                height: calc(100vh - 80px);
+                background: white;
+                transition: var(--transition);
+                box-shadow: -5px 0 15px rgba(0, 0, 0, 0.1);
+                padding: 30px;
+            }
+
+            nav.active {
+                right: 0;
+            }
+
+            nav ul {
+                flex-direction: column;
+            }
+
+            nav ul li {
+                margin: 15px 0;
+            }
+
+            .section-header h2 {
+                font-size: 2.2rem;
+            }
+
+            .page-hero h1 {
+                font-size: 2.4rem;
+            }
+
+            .page-hero p {
+                font-size: 1.1rem;
+            }
+
+            .header-btns {
+                display: none;
+            }
+
+            .guidance-section {
+                padding: 30px 20px;
+            }
+
+            .guidance-cta h2 {
+                font-size: 2.2rem;
+            }
+        }
+
+        @media (max-width: 576px) {
+            section {
+                padding: 80px 0;
+            }
+
+            .section-header h2 {
+                font-size: 2rem;
+            }
+
+            .section-header p {
+                font-size: 1.1rem;
+            }
+
+            .page-hero {
+                padding: 150px 0 80px;
+            }
+
+            .page-hero h1 {
+                font-size: 2rem;
+            }
+
+            .guidance-tabs {
+                justify-content: center;
+            }
+
+            .guidance-item h3 {
+                font-size: 1.5rem;
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 10px;
+            }
+
+            .faq-section {
+                padding: 30px 20px;
+            }
+
+            .footer-bottom {
+                flex-direction: column;
+                gap: 15px;
+                text-align: center;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Header -->
+    <header id="header">
+        <div class="container header-container">
+            <a href="index.html" class="logo">
+                <div class="logo-icon">
+                    <i class="fas fa-graduation-cap"></i>
+                </div>
+                <div class="logo-text">ShikshaSathi</div>
+            </a>
+
+            <div class="mobile-toggle">
+                <i class="fas fa-bars"></i>
+            </div>
+
+            <nav>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="classes.html">Classes</a></li>
+                    <li><a href="annoucement.html">Announcements</a></li>
+                    <li><a href="guidance.html" class="active">Guidance</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                    <li class="mobile-btn">
+                        <a href="#" class="btn btn-outline">Book Demo</a>
+                    </li>
+                </ul>
+            </nav>
+
+            <div class="header-btns">
+                <a href="#" class="btn btn-outline">Book Demo</a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Page Hero -->
+    <section class="page-hero">
+        <div class="container">
+            <h1>Academic Guidance & Career Counseling</h1>
+            <p>Expert advice to help students navigate their educational journey and make informed career decisions</p>
+        </div>
+    </section>
+
+    <!-- Guidance Content -->
+    <section class="guidance-section">
+        <div class="container">
+            <div class="guidance-tabs">
+                <div class="guidance-tab active" data-tab="school">School Students</div>
+                <div class="guidance-tab" data-tab="college">College Students</div>
+                <div class="guidance-tab" data-tab="competitive">Competitive Exams</div>
+                <div class="guidance-tab" data-tab="career">Career Paths</div>
+            </div>
+
+            <!-- School Students Content -->
+            <div class="guidance-content active" id="school-content">
+                <div class="guidance-item">
+                    <h3><i class="fas fa-school"></i> Choosing the Right Stream</h3>
+                    <p>Selecting the appropriate stream after 10th grade is crucial for a student's future. Here's how
+                        we help:</p>
+                    <ul>
+                        <li>Comprehensive aptitude and interest assessment</li>
+                        <li>Detailed analysis of career options for each stream</li>
+                        <li>Guidance on subject combinations based on future goals</li>
+                        <li>Information about emerging fields and industry trends</li>
+                        <li>Personalized counseling sessions with experts</li>
+                    </ul>
+
+                    <div class="resource-card">
+                        <h4>Stream Selection Workbook</h4>
+                        <p>Download our free workbook to evaluate your strengths, interests, and career aspirations to
+                            make an informed stream choice.</p>
+                        <a href="#" class="btn btn-outline">
+                            <i class="fas fa-download"></i> Download Now
+                        </a>
+                    </div>
+                </div>
+
+                <div class="guidance-item">
+                    <h3><i class="fas fa-book-open"></i> Board Exam Preparation</h3>
+                    <p>Strategies to excel in CBSE, ICSE, and State Board examinations:</p>
+                    <ul>
+                        <li>Customized study plans based on learning style</li>
+                        <li>Time management techniques for effective preparation</li>
+                        <li>Chapter-wise weightage and important topics</li>
+                        <li>Answer writing practice and presentation tips</li>
+                        <li>Stress management and exam anxiety reduction</li>
+                    </ul>
+                </div>
+
+                <div class="guidance-item">
+                    <h3><i class="fas fa-chart-line"></i> Skill Development</h3>
+                    <p>Essential skills for 21st century success that complement academic learning:</p>
+                    <ul>
+                        <li>Critical thinking and problem solving workshops</li>
+                        <li>Communication and public speaking training</li>
+                        <li>Digital literacy and coding basics</li>
+                        <li>Financial literacy for teenagers</li>
+                        <li>Leadership and teamwork activities</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- College Students Content -->
+            <div class="guidance-content" id="college-content">
+                <div class="guidance-item">
+                    <h3><i class="fas fa-university"></i> Choosing the Right College</h3>
+                    <p>Factors to consider when selecting undergraduate programs and institutions:</p>
+                    <ul>
+                        <li>NAAC/NIRF rankings and accreditation details</li>
+                        <li>Faculty qualifications and research opportunities</li>
+                        <li>Campus placement records and industry connections</li>
+                        <li>Scholarship and financial aid availability</li>
+                        <li>Alumni network and extracurricular offerings</li>
+                    </ul>
+                </div>
+
+                <div class="guidance-item">
+                    <h3><i class="fas fa-graduation-cap"></i> Academic Success in College</h3>
+                    <p>Strategies to maximize learning and performance in higher education:</p>
+                    <ul>
+                        <li>Effective note-taking and research methodologies</li>
+                        <li>Time management for coursework and projects</li>
+                        <li>Building relationships with professors and mentors</li>
+                        <li>Utilizing campus resources (libraries, labs, etc.)</li>
+                        <li>Balancing academics with extracurricular activities</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Competitive Exams Content -->
+            <div class="guidance-content" id="competitive-content">
+                <div class="guidance-item">
+                    <h3><i class="fas fa-medal"></i> Engineering Entrance Exams</h3>
+                    <p>Comprehensive guidance for JEE Main, JEE Advanced, BITSAT, and other engineering entrance tests:
+                    </p>
+                    <ul>
+                        <li>Detailed syllabus analysis and topic weightage</li>
+                        <li>Recommended study materials and reference books</li>
+                        <li>Mock test series and performance analysis</li>
+                        <li>Time management strategies for exam day</li>
+                        <li>College selection based on rank predictors</li>
+                    </ul>
+                </div>
+
+                <div class="guidance-item">
+                    <h3><i class="fas fa-user-md"></i> Medical Entrance Exams</h3>
+                    <p>Preparation roadmap for NEET, AIIMS, JIPMER, and other medical entrance examinations:</p>
+                    <ul>
+                        <li>Biology, Chemistry, and Physics preparation strategies</li>
+                        <li>Diagram-based learning techniques</li>
+                        <li>Previous year question paper analysis</li>
+                        <li>Speed and accuracy improvement methods</li>
+                        <li>Medical college selection guidance</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Career Paths Content -->
+            <div class="guidance-content" id="career-content">
+                <div class="guidance-item">
+                    <h3><i class="fas fa-briefcase"></i> Emerging Career Options</h3>
+                    <p>Exploring new-age career paths in India's evolving job market:</p>
+                    <ul>
+                        <li>Data Science and Artificial Intelligence</li>
+                        <li>Cybersecurity and Ethical Hacking</li>
+                        <li>Renewable Energy and Sustainability</li>
+                        <li>Digital Marketing and E-commerce</li>
+                        <li>Healthcare Technology and Biotechnology</li>
+                    </ul>
+                </div>
+
+                <div class="guidance-item">
+                    <h3><i class="fas fa-globe-asia"></i> Study Abroad Guidance</h3>
+                    <p>Comprehensive support for students aspiring to study overseas:</p>
+                    <ul>
+                        <li>Country-wise education system overview (USA, UK, Canada, etc.)</li>
+                        <li>University selection and application process</li>
+                        <li>Scholarship and financial aid opportunities</li>
+                        <li>Visa application and documentation assistance</li>
+                        <li>Pre-departure orientation and cultural adaptation</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- FAQ Section -->
+            <div class="faq-section">
+                <h2>Frequently Asked Questions</h2>
+
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <span>When should students start career counseling?</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Ideally, career counseling should begin in 9th grade when students start making academic
+                            choices that impact their future. Early exposure to career options helps students make
+                            informed decisions about streams, subjects, and extracurricular activities that align with
+                            their goals.</p>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <span>How do we assess a student's aptitude?</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>We use a combination of standardized aptitude tests, interest inventories, personality
+                            assessments, and one-on-one counseling sessions. Our holistic approach evaluates cognitive
+                            abilities, learning styles, personality traits, and genuine interests to provide
+                            comprehensive guidance.</p>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <span>What's the difference between aptitude and interest?</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Aptitude refers to a student's natural abilities and potential to develop skills in specific
+                            areas, while interest indicates what they enjoy doing. The ideal career path combines both -
+                            something the student is good at and passionate about. We help students find this sweet spot
+                            through careful assessment.</p>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <span>How often should students revisit career guidance?</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Career guidance should be an ongoing process. We recommend formal check-ins at key transition
+                            points: after 10th grade, during 12th grade, at college entry, and before graduation.
+                            However, students can access our counselors anytime as interests and goals evolve.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Expert Section -->
+            <div class="expert-section">
+                <h2>Meet Our Guidance Experts</h2>
+
+                <div class="expert-card">
+                    <div class="expert-img">DP</div>
+                    <div class="expert-info">
+                        <h3>Dr. Priya Sharma</h3>
+                        <p class="position">Chief Career Counselor (15+ years experience)</p>
+                        <p class="bio">PhD in Educational Psychology with specialization in career development. Former
+                            HOD of Guidance and Counseling at Delhi University. Has guided over 5,000 students in making
+                            informed career choices.</p>
+                        <a href="#" class="btn">
+                            <i class="fas fa-calendar-alt"></i> Book Session
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Call to Action -->
+    <section class="guidance-cta">
+        <div class="container">
+            <h2>Personalized Career Guidance Session</h2>
+            <p>Book a one-on-one counseling session with our experts to create a customized roadmap for academic and
+                career success</p>
+            <a href="#" class="btn pulse">
+                <i class="fas fa-user-tie"></i> Schedule Now
+            </a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <h3>ShikshaSathi</h3>
+                    <p>Empowering educators and students across India with quality education solutions since 2015.</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="#"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+
+                <div class="footer-col">
+                    <h3>Quick Links</h3>
+                    <ul class="footer-links">
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="about.html">About Us</a></li>
+                        <li><a href="classes.html">Classes</a></li>
+                        <li><a href="announcement.html">Announcements</a></li>
+                        <li><a href="guidance.html">Guidance</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-col">
+                    <h3>Programs</h3>
+                    <ul class="footer-links">
+                        <li><a href="#">School Curriculum</a></li>
+                        <li><a href="#">IIT-JEE Preparation</a></li>
+                        <li><a href="#">NEET Coaching</a></li>
+                        <li><a href="#">Commerce Programs</a></li>
+                        <li><a href="#">Language Courses</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-col">
+                    <h3>Contact Us</h3>
+                    <ul class="footer-links">
+                        <li><i class="fas fa-map-marker-alt"></i> 123 Education Street, New Delhi</li>
+                        <li><i class="fas fa-phone"></i> +91 98765 43210</li>
+                        <li><i class="fas fa-envelope"></i> info@shikshasathi.com</li>
+                        <li><i class="fas fa-clock"></i> Mon-Sat: 8am-8pm</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <p>&copy; 2023 ShikshaSathi. All Rights Reserved.</p>
+                <div class="powered-by">Powered by <a href="https://friendscampus.com" target="_blank">FriendsCampus</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile Navigation Toggle
+        const mobileToggle = document.querySelector('.mobile-toggle');
+        const nav = document.querySelector('nav');
+        const header = document.getElementById('header');
+
+        mobileToggle.addEventListener('click', () => {
+            nav.classList.toggle('active');
+            const icon = mobileToggle.querySelector('i');
+            if (nav.classList.contains('active')) {
+                icon.classList.remove('fa-bars');
+                icon.classList.add('fa-times');
+            } else {
+                icon.classList.remove('fa-times');
+                icon.classList.add('fa-bars');
+            }
+        });
+
+        // Header scroll effect
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 100) {
+                header.classList.add('header-scrolled');
+            } else {
+                header.classList.remove('header-scrolled');
+            }
+        });
+
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const targetId = this.getAttribute('href');
+                if (targetId === '#') return;
+
+                const targetElement = document.querySelector(targetId);
+                if (targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 80,
+                        behavior: 'smooth'
+                    });
+
+                    // Close mobile menu if open
+                    nav.classList.remove('active');
+                    const icon = mobileToggle.querySelector('i');
+                    icon.classList.remove('fa-times');
+                    icon.classList.add('fa-bars');
+                }
+            });
+        });
+
+        // Guidance Tab Functionality
+        const tabs = document.querySelectorAll('.guidance-tab');
+        const contents = document.querySelectorAll('.guidance-content');
+
+        tabs.forEach(tab => {
+            tab.addEventListener('click', () => {
+                // Remove active class from all tabs and contents
+                tabs.forEach(t => t.classList.remove('active'));
+                contents.forEach(c => c.classList.remove('active'));
+
+                // Add active class to clicked tab and corresponding content
+                tab.classList.add('active');
+                const contentId = tab.getAttribute('data-tab') + '-content';
+                document.getElementById(contentId).classList.add('active');
+            });
+        });
+
+        // FAQ Accordion
+        const faqQuestions = document.querySelectorAll('.faq-question');
+
+        faqQuestions.forEach(question => {
+            question.addEventListener('click', () => {
+                const answer = question.nextElementSibling;
+                const isActive = question.classList.contains('active');
+
+                // Close all other FAQs
+                faqQuestions.forEach(q => {
+                    q.classList.remove('active');
+                    q.nextElementSibling.classList.remove('active');
+                });
+
+                // Open clicked FAQ if it wasn't already active
+                if (!isActive) {
+                    question.classList.add('active');
+                    answer.classList.add('active');
+                }
+            });
+        });
+
+        // Animation on scroll
+        const animateOnScroll = () => {
+            const elements = document.querySelectorAll('.guidance-item, .faq-item, .expert-card');
+
+            elements.forEach(element => {
+                const elementPosition = element.getBoundingClientRect().top;
+                const screenPosition = window.innerHeight / 1.3;
+
+                if (elementPosition < screenPosition) {
+                    element.style.opacity = 1;
+                    element.style.transform = 'translateY(0)';
+                }
+            });
+        };
+
+        // Set initial state
+        document.querySelectorAll('.guidance-item, .faq-item, .expert-card').forEach(el => {
+            el.style.opacity = 0;
+            el.style.transform = 'translateY(30px)';
+            el.style.transition = 'opacity 0.7s ease, transform 0.7s ease';
+        });
+
+        window.addEventListener('scroll', animateOnScroll);
+        // Trigger once on load
+        window.addEventListener('load', animateOnScroll);
+    </script>
+</body>
+
+</html>

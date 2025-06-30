@@ -1,0 +1,1884 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Our Classes | ShikshaSathi - Transforming Indian Education</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Raleway:wght@700;800&display=swap"
+        rel="stylesheet">
+    <style>
+        :root {
+            --primary: #4361ee;
+            --secondary: #f72585;
+            --accent: #4cc9f0;
+            --light: #f8f9fa;
+            --dark: #212529;
+            --success: #2ec4b6;
+            --warning: #ff9f1c;
+            --transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            --shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            --border-radius: 16px;
+            --gradient-primary: linear-gradient(135deg, var(--primary) 0%, #3a0ca3 100%);
+            --gradient-secondary: linear-gradient(135deg, var(--secondary) 0%, #b5179e 100%);
+            --gradient-accent: linear-gradient(135deg, var(--accent) 0%, #4895ef 100%);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: "Poppins", sans-serif;
+            color: var(--dark);
+            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+            line-height: 1.7;
+            overflow-x: hidden;
+            position: relative;
+        }
+
+        body:before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background:
+                radial-gradient(circle at 10% 20%, rgba(67, 97, 238, 0.05) 0%, transparent 20%),
+                radial-gradient(circle at 90% 80%, rgba(247, 37, 133, 0.05) 0%, transparent 20%);
+            z-index: -1;
+            pointer-events: none;
+        }
+
+        h1,
+        h2,
+        h3,
+        h4,
+        h5 {
+            font-family: "Raleway", sans-serif;
+            font-weight: 700;
+            color: var(--dark);
+            line-height: 1.2;
+        }
+
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            background: var(--gradient-secondary);
+            color: white;
+            padding: 14px 36px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: var(--transition);
+            border: none;
+            cursor: pointer;
+            box-shadow: var(--shadow);
+            font-size: 1.05rem;
+            letter-spacing: 0.5px;
+            position: relative;
+            overflow: hidden;
+            z-index: 1;
+            gap: 8px;
+        }
+
+        .btn:before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 0;
+            height: 100%;
+            background: var(--gradient-primary);
+            transition: width 0.5s ease;
+            z-index: -1;
+        }
+
+        .btn:hover:before {
+            width: 100%;
+        }
+
+        .btn:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 30px rgba(247, 37, 133, 0.3);
+        }
+
+        .btn-primary {
+            background: var(--gradient-primary);
+        }
+
+        .btn-primary:before {
+            background: var(--gradient-secondary);
+        }
+
+        .btn-outline {
+            background: transparent;
+            border: 2px solid var(--primary);
+            color: var(--primary);
+            box-shadow: none;
+        }
+
+        .btn-outline:hover {
+            background: var(--primary);
+            color: white;
+        }
+
+        section {
+            padding: 100px 0;
+        }
+
+        .section-header {
+            text-align: center;
+            max-width: 700px;
+            margin: 0 auto 70px;
+            position: relative;
+        }
+
+        .section-header h2 {
+            font-size: 2.8rem;
+            margin-bottom: 20px;
+            position: relative;
+            display: inline-block;
+            background: var(--gradient-primary);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+
+        .section-header h2:after {
+            content: '';
+            position: absolute;
+            width: 80px;
+            height: 4px;
+            background: var(--accent);
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            border-radius: 2px;
+        }
+
+        .section-header p {
+            font-size: 1.2rem;
+            color: #555;
+        }
+
+        /* .mobile-btn {
+            display: none;
+        } */
+
+        /* Header Styles */
+        header {
+            position: fixed;
+            width: 100%;
+            top: 0;
+            left: 0;
+            z-index: 1000;
+            background: rgba(255, 255, 255, 0.98);
+            backdrop-filter: blur(10px);
+            box-shadow: 0 2px 15px rgba(0, 0, 0, 0.05);
+            transition: var(--transition);
+        }
+
+        .header-scrolled {
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
+        }
+
+        .header-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 0;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            text-decoration: none;
+        }
+
+        .logo-icon {
+            width: 50px;
+            height: 50px;
+            background: var(--gradient-primary);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 12px;
+            box-shadow: var(--shadow);
+        }
+
+        .logo-icon i {
+            font-size: 1.8rem;
+            color: white;
+        }
+
+        .logo-text {
+            font-size: 1.8rem;
+            font-weight: 800;
+            background: var(--gradient-primary);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            letter-spacing: -0.5px;
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+        }
+
+        nav ul li {
+            margin: 0 12px;
+        }
+
+        nav ul li a {
+            text-decoration: none;
+            color: var(--dark);
+            font-weight: 500;
+            font-size: 1.05rem;
+            transition: var(--transition);
+            position: relative;
+            padding: 8px 0;
+        }
+
+        nav ul li a:after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 3px;
+            background: var(--accent);
+            bottom: 0;
+            left: 0;
+            transition: var(--transition);
+            border-radius: 2px;
+        }
+
+        nav ul li a:hover:after,
+        nav ul li a.active:after {
+            width: 100%;
+        }
+
+        .header-btns {
+            display: flex;
+            gap: 15px;
+        }
+
+        .mobile-toggle {
+            display: none;
+            font-size: 1.8rem;
+            color: var(--primary);
+            cursor: pointer;
+        }
+
+        /* Page Banner */
+        .page-banner {
+            background: linear-gradient(135deg, rgba(67, 97, 238, 0.95) 0%, rgba(58, 12, 163, 0.9) 100%), url('https://images.unsplash.com/photo-1523050854058-8df90110c9f1?ixlib=rb-4.0.3&auto=format&fit=crop&w=1950&q=80');
+            background-size: cover;
+            background-position: center;
+            height: 400px;
+            display: flex;
+            align-items: center;
+            color: white;
+            position: relative;
+            overflow: hidden;
+            margin-top: 80px;
+            clip-path: polygon(0 0, 100% 0, 100% 90%, 0 100%);
+        }
+
+        .page-banner:after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 100px;
+            background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1440 320'%3E%3Cpath fill='%23f8f9fa' fill-opacity='1' d='M0,224L48,218.7C96,213,192,203,288,186.7C384,171,480,149,576,165.3C672,181,768,235,864,234.7C960,235,1056,181,1152,170.7C1248,160,1344,192,1392,208L1440,224L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z'%3E%3C/path%3E%3C/svg%3E");
+            background-size: cover;
+            background-position: bottom;
+            z-index: 1;
+        }
+
+        .banner-content {
+            max-width: 800px;
+            z-index: 2;
+            text-align: center;
+        }
+
+        .banner-content h1 {
+            font-size: 3.5rem;
+            color: white;
+            margin-bottom: 20px;
+            line-height: 1.2;
+            text-shadow: 0 2px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        .banner-content p {
+            font-size: 1.3rem;
+            opacity: 0.9;
+            max-width: 700px;
+            margin: 0 auto;
+            font-weight: 300;
+            text-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
+        }
+
+        /* Classes Section */
+        .classes-tabs {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 50px;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        .tab-btn {
+            padding: 12px 30px;
+            background: white;
+            border: none;
+            border-radius: 50px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: var(--transition);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            position: relative;
+            overflow: hidden;
+            z-index: 1;
+        }
+
+        .tab-btn:before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 0;
+            height: 100%;
+            background: var(--gradient-primary);
+            transition: width 0.3s ease;
+            z-index: -1;
+        }
+
+        .tab-btn.active {
+            background: var(--gradient-primary);
+            color: white;
+        }
+
+        .tab-btn:not(.active):hover:before {
+            width: 100%;
+        }
+
+        .tab-btn:not(.active):hover {
+            color: white;
+        }
+
+        .tab-content {
+            display: none;
+            animation: fadeIn 0.5s ease;
+        }
+
+        .tab-content.active {
+            display: block;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .class-categories {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            gap: 30px;
+            margin-top: 50px;
+        }
+
+        .category-card {
+            background: white;
+            border-radius: var(--border-radius);
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+        }
+
+        .category-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.1);
+        }
+
+        .category-header {
+            padding: 25px;
+            background: var(--gradient-primary);
+            color: white;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .category-icon {
+            width: 60px;
+            height: 60px;
+            background: rgba(255, 255, 255, 0.2);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.8rem;
+            flex-shrink: 0;
+        }
+
+        .category-title h3 {
+            color: white;
+            margin-bottom: 5px;
+            font-size: 1.5rem;
+        }
+
+        .category-title p {
+            opacity: 0.9;
+            font-size: 0.95rem;
+        }
+
+        .class-list {
+            padding: 25px;
+        }
+
+        .class-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 0;
+            border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+        }
+
+        .class-item:last-child {
+            border-bottom: none;
+        }
+
+        .class-info h4 {
+            font-size: 1.1rem;
+            margin-bottom: 5px;
+        }
+
+        .class-info p {
+            font-size: 0.9rem;
+            color: #666;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .class-info p i {
+            color: var(--accent);
+        }
+
+        .class-price {
+            text-align: right;
+        }
+
+        .class-price .price {
+            font-weight: 700;
+            color: var(--primary);
+            font-size: 1.2rem;
+        }
+
+        .class-price .duration {
+            font-size: 0.8rem;
+            color: #888;
+        }
+
+        .view-all {
+            text-align: center;
+            margin-top: 40px;
+        }
+
+        /* Pricing Section */
+        .pricing-plans {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 50px;
+        }
+
+        .pricing-card {
+            background: white;
+            border-radius: var(--border-radius);
+            padding: 40px 30px;
+            text-align: center;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .pricing-card.popular {
+            border: 2px solid var(--accent);
+        }
+
+        .pricing-card.popular:before {
+            content: 'Most Popular';
+            position: absolute;
+            top: 15px;
+            right: -30px;
+            background: var(--accent);
+            color: white;
+            padding: 5px 30px;
+            transform: rotate(45deg);
+            font-size: 0.8rem;
+            font-weight: 600;
+        }
+
+        .pricing-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.1);
+        }
+
+        .plan-name {
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+            color: var(--dark);
+        }
+
+        .plan-price {
+            font-size: 3rem;
+            font-weight: 700;
+            margin-bottom: 15px;
+            background: var(--gradient-primary);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+
+        .plan-duration {
+            color: #777;
+            margin-bottom: 30px;
+        }
+
+        .plan-features {
+            list-style: none;
+            margin-bottom: 40px;
+        }
+
+        .plan-features li {
+            padding: 10px 0;
+            border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+        }
+
+        .plan-features li:last-child {
+            border-bottom: none;
+        }
+
+        /* FAQ Section */
+        .faq-container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .faq-item {
+            background: white;
+            border-radius: var(--border-radius);
+            margin-bottom: 20px;
+            box-shadow: var(--shadow);
+            overflow: hidden;
+        }
+
+        .faq-question {
+            padding: 25px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            cursor: pointer;
+            font-weight: 600;
+            transition: var(--transition);
+        }
+
+        .faq-question:hover {
+            color: var(--primary);
+        }
+
+        .faq-question i {
+            transition: var(--transition);
+        }
+
+        .faq-question.active i {
+            transform: rotate(180deg);
+            color: var(--accent);
+        }
+
+        .faq-answer {
+            padding: 0 25px;
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease, padding 0.3s ease;
+        }
+
+        .faq-answer.show {
+            padding: 0 25px 25px;
+            max-height: 500px;
+        }
+
+        /* Stats Section */
+        .stats {
+            background: var(--gradient-primary);
+            color: white;
+            text-align: center;
+            clip-path: polygon(0 15%, 100% 0, 100% 85%, 0 100%);
+            padding: 150px 0;
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 40px;
+        }
+
+        .stat-item {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 30px 20px;
+            border-radius: var(--border-radius);
+            backdrop-filter: blur(5px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            transition: var(--transition);
+        }
+
+        .stat-item:hover {
+            transform: translateY(-10px);
+            background: rgba(255, 255, 255, 0.15);
+        }
+
+        .stat-item h3 {
+            font-size: 3.5rem;
+            color: white;
+            margin-bottom: 10px;
+            text-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        .stat-item p {
+            font-size: 1.2rem;
+            opacity: 0.9;
+        }
+
+        /* Call to Action */
+        .cta {
+            background: var(--gradient-accent);
+            color: white;
+            text-align: center;
+            padding: 120px 0;
+            clip-path: polygon(0 15%, 100% 0, 100% 85%, 0 100%);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .cta:before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background:
+                radial-gradient(circle at 20% 30%, rgba(255, 255, 255, 0.1) 0%, transparent 40%),
+                radial-gradient(circle at 80% 70%, rgba(255, 255, 255, 0.1) 0%, transparent 40%);
+            pointer-events: none;
+        }
+
+        .cta h2 {
+            color: white;
+            margin-bottom: 30px;
+            font-size: 3rem;
+            text-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        .cta p {
+            max-width: 700px;
+            margin: 0 auto 40px;
+            font-size: 1.3rem;
+            opacity: 0.9;
+        }
+
+        .cta .btn {
+            background: white;
+            color: var(--primary);
+            font-weight: 700;
+        }
+
+        .cta .btn:before {
+            background: var(--gradient-secondary);
+        }
+
+        .cta .btn:hover {
+            color: white;
+        }
+
+        /* Footer */
+        footer {
+            background: var(--dark);
+            color: rgba(255, 255, 255, 0.8);
+            padding: 120px 0 40px;
+            position: relative;
+            clip-path: polygon(0 10%, 100% 0, 100% 100%, 0 100%);
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+            gap: 46px;
+            margin-bottom: 70px;
+        }
+
+        .footer-col h3 {
+            color: white;
+            margin-bottom: 25px;
+            font-size: 1.5rem;
+            position: relative;
+            padding-bottom: 15px;
+        }
+
+        .footer-col h3:after {
+            content: '';
+            position: absolute;
+            width: 50px;
+            height: 3px;
+            background: var(--accent);
+            bottom: 0;
+            left: 0;
+        }
+
+        .footer-links {
+            list-style: none;
+        }
+
+        .footer-links li {
+            margin-bottom: 15px;
+        }
+
+        .footer-links a {
+            color: rgba(255, 255, 255, 0.7);
+            text-decoration: none;
+            transition: var(--transition);
+            display: inline-block;
+        }
+
+        .footer-links a:hover {
+            color: var(--accent);
+            transform: translateX(5px);
+        }
+
+        .social-links {
+            display: flex;
+            gap: 7px;
+            margin-top: 25px;
+        }
+
+        .social-links a {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 45px;
+            height: 45px;
+            background: rgba(255, 255, 255, 0.1);
+            color: white;
+            border-radius: 50%;
+            transition: var(--transition);
+            text-decoration: none;
+            font-size: 1.2rem;
+        }
+
+        .social-links a:hover {
+            background: var(--accent);
+            transform: translateY(-5px);
+        }
+
+        .footer-bottom {
+            padding-top: 40px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+
+        .footer-bottom p {
+            margin: 0;
+            color: rgba(255, 255, 255, 0.6);
+        }
+
+        .powered-by {
+            color: rgba(255, 255, 255, 0.6);
+        }
+
+        .powered-by a {
+            color: var(--accent);
+            text-decoration: none;
+            transition: var(--transition);
+        }
+
+        .powered-by a:hover {
+            color: white;
+        }
+
+        .mobile-btn {
+            display: none;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 992px) {
+            .section-header h2 {
+                font-size: 2.5rem;
+            }
+
+            .banner-content h1 {
+                font-size: 3rem;
+            }
+
+            .class-categories {
+                grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            }
+
+            .mobile-btn {
+                display: block;
+            }
+        }
+        }
+
+        @media (max-width: 768px) {
+            .mobile-toggle {
+                display: block;
+            }
+
+            nav {
+                position: fixed;
+                top: 80px;
+                right: -100%;
+                width: 80%;
+                height: calc(100vh - 80px);
+                background: white;
+                transition: var(--transition);
+                box-shadow: -5px 0 15px rgba(0, 0, 0, 0.1);
+                padding: 30px;
+            }
+
+            nav.active {
+                right: 0;
+            }
+
+            nav ul {
+                flex-direction: column;
+            }
+
+            nav ul li {
+                margin: 15px 0;
+            }
+
+            .banner-content h1 {
+                font-size: 2.5rem;
+            }
+
+            .banner-content p {
+                font-size: 1.1rem;
+            }
+
+            .section-header h2 {
+                font-size: 2.2rem;
+            }
+
+            .header-btns {
+                display: none;
+            }
+
+            .classes-tabs {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .tab-btn {
+                width: 100%;
+                max-width: 300px;
+            }
+        }
+
+        @media (max-width: 576px) {
+            section {
+                padding: 80px 0;
+            }
+
+            .page-banner {
+                height: 350px;
+            }
+
+            .banner-content h1 {
+                font-size: 2.2rem;
+            }
+
+            .section-header h2 {
+                font-size: 2rem;
+            }
+
+            .section-header p {
+                font-size: 1.1rem;
+            }
+
+            .footer-bottom {
+                flex-direction: column;
+                gap: 15px;
+                text-align: center;
+            }
+
+            .cta {
+                padding: 80px 0;
+            }
+
+            .class-categories {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Header -->
+    <header id="header">
+        <div class="container header-container">
+            <a href="index.html" class="logo">
+                <div class="logo-icon">
+                    <i class="fas fa-graduation-cap"></i>
+                </div>
+                <div class="logo-text">ShikshaSathi</div>
+            </a>
+
+            <div class="mobile-toggle">
+                <i class="fas fa-bars"></i>
+            </div>
+
+            <nav>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="classes.html" class="active">Classes</a></li>
+                    <li><a href="announcement.html">Announcements</a></li>
+                    <li><a href="guidance.html">Guidance</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                    <li class="mobile-btn">
+                        <a href="#" class="btn btn-outline">Book Demo</a>
+                    </li>
+                </ul>
+            </nav>
+
+            <div class="header-btns">
+                <a href="#" class="btn btn-outline">Book Demo</a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Page Banner -->
+    <section class="page-banner">
+        <div class="container">
+            <div class="banner-content">
+                <h1>Our Comprehensive Classes</h1>
+                <p>Tailored academic programs designed for Indian students across all boards and competitive exams</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Classes Section -->
+    <section class="classes">
+        <div class="container">
+            <div class="section-header">
+                <h2>Explore Our Programs</h2>
+                <p>Choose from our wide range of academic courses designed for every learning need</p>
+            </div>
+
+            <div class="classes-tabs">
+                <button class="tab-btn active" data-tab="school">School Curriculum</button>
+                <button class="tab-btn" data-tab="competitive">Competitive Exams</button>
+                <button class="tab-btn" data-tab="language">Language Courses</button>
+                <button class="tab-btn" data-tab="skill">Skill Development</button>
+            </div>
+
+            <div id="school" class="tab-content active">
+                <div class="class-categories">
+                    <div class="category-card">
+                        <div class="category-header">
+                            <div class="category-icon">
+                                <i class="fas fa-calculator"></i>
+                            </div>
+                            <div class="category-title">
+                                <h3>Mathematics</h3>
+                                <p>Master concepts from basics to advanced</p>
+                            </div>
+                        </div>
+                        <div class="class-list">
+                            <div class="class-item">
+                                <div class="class-info">
+                                    <h4>CBSE Mathematics (6-10)</h4>
+                                    <p><i class="fas fa-chalkboard-teacher"></i> Experienced CBSE tutors</p>
+                                </div>
+                                <div class="class-price">
+                                    <div class="price">₹1,500/mo</div>
+                                    <div class="duration">3 classes/week</div>
+                                </div>
+                            </div>
+                            <div class="class-item">
+                                <div class="class-info">
+                                    <h4>ICSE Mathematics (6-10)</h4>
+                                    <p><i class="fas fa-award"></i> ICSE certified educators</p>
+                                </div>
+                                <div class="class-price">
+                                    <div class="price">₹1,800/mo</div>
+                                    <div class="duration">3 classes/week</div>
+                                </div>
+                            </div>
+                            <div class="class-item">
+                                <div class="class-info">
+                                    <h4>State Board Mathematics</h4>
+                                    <p><i class="fas fa-book"></i> Regional language options</p>
+                                </div>
+                                <div class="class-price">
+                                    <div class="price">₹1,200/mo</div>
+                                    <div class="duration">3 classes/week</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="category-card">
+                        <div class="category-header"
+                            style="background: linear-gradient(135deg, #f72585 0%, #b5179e 100%);">
+                            <div class="category-icon">
+                                <i class="fas fa-atom"></i>
+                            </div>
+                            <div class="category-title">
+                                <h3>Science</h3>
+                                <p>Physics, Chemistry & Biology</p>
+                            </div>
+                        </div>
+                        <div class="class-list">
+                            <div class="class-item">
+                                <div class="class-info">
+                                    <h4>CBSE Science (6-10)</h4>
+                                    <p><i class="fas fa-flask"></i> Practical learning approach</p>
+                                </div>
+                                <div class="class-price">
+                                    <div class="price">₹1,800/mo</div>
+                                    <div class="duration">4 classes/week</div>
+                                </div>
+                            </div>
+                            <div class="class-item">
+                                <div class="class-info">
+                                    <h4>ICSE Physics (9-10)</h4>
+                                    <p><i class="fas fa-bolt"></i> Concept-focused teaching</p>
+                                </div>
+                                <div class="class-price">
+                                    <div class="price">₹2,000/mo</div>
+                                    <div class="duration">3 classes/week</div>
+                                </div>
+                            </div>
+                            <div class="class-item">
+                                <div class="class-info">
+                                    <h4>CBSE Biology (11-12)</h4>
+                                    <p><i class="fas fa-dna"></i> NEET preparation included</p>
+                                </div>
+                                <div class="class-price">
+                                    <div class="price">₹2,500/mo</div>
+                                    <div class="duration">4 classes/week</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="category-card">
+                        <div class="category-header"
+                            style="background: linear-gradient(135deg, #4cc9f0 0%, #4895ef 100%);">
+                            <div class="category-icon">
+                                <i class="fas fa-book"></i>
+                            </div>
+                            <div class="category-title">
+                                <h3>Commerce</h3>
+                                <p>Accountancy, Economics & Business</p>
+                            </div>
+                        </div>
+                        <div class="class-list">
+                            <div class="class-item">
+                                <div class="class-info">
+                                    <h4>CBSE Accountancy (11-12)</h4>
+                                    <p><i class="fas fa-file-invoice-dollar"></i> Practical accounting</p>
+                                </div>
+                                <div class="class-price">
+                                    <div class="price">₹2,000/mo</div>
+                                    <div class="duration">3 classes/week</div>
+                                </div>
+                            </div>
+                            <div class="class-item">
+                                <div class="class-info">
+                                    <h4>ICSE Economics (9-10)</h4>
+                                    <p><i class="fas fa-chart-line"></i> Real-world applications</p>
+                                </div>
+                                <div class="class-price">
+                                    <div class="price">₹1,800/mo</div>
+                                    <div class="duration">2 classes/week</div>
+                                </div>
+                            </div>
+                            <div class="class-item">
+                                <div class="class-info">
+                                    <h4>Business Studies (11-12)</h4>
+                                    <p><i class="fas fa-briefcase"></i> Case study approach</p>
+                                </div>
+                                <div class="class-price">
+                                    <div class="price">₹1,800/mo</div>
+                                    <div class="duration">3 classes/week</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="view-all">
+                    <a href="#" class="btn">View All School Programs</a>
+                </div>
+            </div>
+
+            <div id="competitive" class="tab-content">
+                <div class="class-categories">
+                    <div class="category-card">
+                        <div class="category-header"
+                            style="background: linear-gradient(135deg, #7209b7 0%, #560bad 100%);">
+                            <div class="category-icon">
+                                <i class="fas fa-graduation-cap"></i>
+                            </div>
+                            <div class="category-title">
+                                <h3>Engineering</h3>
+                                <p>IIT-JEE, BITSAT & State CETs</p>
+                            </div>
+                        </div>
+                        <div class="class-list">
+                            <div class="class-item">
+                                <div class="class-info">
+                                    <h4>IIT-JEE Foundation (9-10)</h4>
+                                    <p><i class="fas fa-brain"></i> Concept building</p>
+                                </div>
+                                <div class="class-price">
+                                    <div class="price">₹3,500/mo</div>
+                                    <div class="duration">5 classes/week</div>
+                                </div>
+                            </div>
+                            <div class="class-item">
+                                <div class="class-info">
+                                    <h4>IIT-JEE Mains (11-12)</h4>
+                                    <p><i class="fas fa-tasks"></i> Comprehensive syllabus</p>
+                                </div>
+                                <div class="class-price">
+                                    <div class="price">₹4,500/mo</div>
+                                    <div class="duration">6 classes/week</div>
+                                </div>
+                            </div>
+                            <div class="class-item">
+                                <div class="class-info">
+                                    <h4>IIT-JEE Advanced (12+)</h4>
+                                    <p><i class="fas fa-star"></i> Advanced problem solving</p>
+                                </div>
+                                <div class="class-price">
+                                    <div class="price">₹5,500/mo</div>
+                                    <div class="duration">Daily classes</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="category-card">
+                        <div class="category-header"
+                            style="background: linear-gradient(135deg, #2ec4b6 0%, #1b9aaa 100%);">
+                            <div class="category-icon">
+                                <i class="fas fa-user-md"></i>
+                            </div>
+                            <div class="category-title">
+                                <h3>Medical</h3>
+                                <p>NEET, AIIMS & JIPMER</p>
+                            </div>
+                        </div>
+                        <div class="class-list">
+                            <div class="class-item">
+                                <div class="class-info">
+                                    <h4>NEET Foundation (9-10)</h4>
+                                    <p><i class="fas fa-seedling"></i> Biology focus</p>
+                                </div>
+                                <div class="class-price">
+                                    <div class="price">₹3,200/mo</div>
+                                    <div class="duration">5 classes/week</div>
+                                </div>
+                            </div>
+                            <div class="class-item">
+                                <div class="class-info">
+                                    <h4>NEET Preparation (11-12)</h4>
+                                    <p><i class="fas fa-dna"></i> Full syllabus coverage</p>
+                                </div>
+                                <div class="class-price">
+                                    <div class="price">₹4,800/mo</div>
+                                    <div class="duration">Daily classes</div>
+                                </div>
+                            </div>
+                            <div class="class-item">
+                                <div class="class-info">
+                                    <h4>NEET Crash Course</h4>
+                                    <p><i class="fas fa-bolt"></i> Last minute revision</p>
+                                </div>
+                                <div class="class-price">
+                                    <div class="price">₹6,000/mo</div>
+                                    <div class="duration">Intensive program</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="category-card">
+                        <div class="category-header"
+                            style="background: linear-gradient(135deg, #ff9f1c 0%, #ffbf69 100%);">
+                            <div class="category-icon">
+                                <i class="fas fa-landmark"></i>
+                            </div>
+                            <div class="category-title">
+                                <h3>Commerce</h3>
+                                <p>CA, CS & Commerce Entrances</p>
+                            </div>
+                        </div>
+                        <div class="class-list">
+                            <div class="class-item">
+                                <div class="class-info">
+                                    <h4>CA Foundation</h4>
+                                    <p><i class="fas fa-file-invoice"></i> Complete syllabus</p>
+                                </div>
+                                <div class="class-price">
+                                    <div class="price">₹3,500/mo</div>
+                                    <div class="duration">4 classes/week</div>
+                                </div>
+                            </div>
+                            <div class="class-item">
+                                <div class="class-info">
+                                    <h4>CS Foundation</h4>
+                                    <p><i class="fas fa-balance-scale"></i> Corporate laws</p>
+                                </div>
+                                <div class="class-price">
+                                    <div class="price">₹3,200/mo</div>
+                                    <div class="duration">4 classes/week</div>
+                                </div>
+                            </div>
+                            <div class="class-item">
+                                <div class="class-info">
+                                    <h4>B.Com Entrance Prep</h4>
+                                    <p><i class="fas fa-university"></i> Top college focus</p>
+                                </div>
+                                <div class="class-price">
+                                    <div class="price">₹2,800/mo</div>
+                                    <div class="duration">3 classes/week</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="view-all">
+                    <a href="#" class="btn">View All Competitive Programs</a>
+                </div>
+            </div>
+
+            <div id="language" class="tab-content">
+                <!-- Language courses content would go here -->
+                <div class="class-categories">
+                    <div class="category-card">
+                        <div class="category-header"
+                            style="background: linear-gradient(135deg, #4361ee 0%, #3a0ca3 100%);">
+                            <div class="category-icon">
+                                <i class="fas fa-language"></i>
+                            </div>
+                            <div class="category-title">
+                                <h3>English</h3>
+                                <p>From basics to advanced proficiency</p>
+                            </div>
+                        </div>
+                        <div class="class-list">
+                            <div class="class-item">
+                                <div class="class-info">
+                                    <h4>Spoken English</h4>
+                                    <p><i class="fas fa-comments"></i> Daily conversation</p>
+                                </div>
+                                <div class="class-price">
+                                    <div class="price">₹1,200/mo</div>
+                                    <div class="duration">3 classes/week</div>
+                                </div>
+                            </div>
+                            <div class="class-item">
+                                <div class="class-info">
+                                    <h4>Business English</h4>
+                                    <p><i class="fas fa-briefcase"></i> Professional communication</p>
+                                </div>
+                                <div class="class-price">
+                                    <div class="price">₹1,500/mo</div>
+                                    <div class="duration">3 classes/week</div>
+                                </div>
+                            </div>
+                            <div class="class-item">
+                                <div class="class-info">
+                                    <h4>IELTS Preparation</h4>
+                                    <p><i class="fas fa-passport"></i> Study abroad focus</p>
+                                </div>
+                                <div class="class-price">
+                                    <div class="price">₹2,500/mo</div>
+                                    <div class="duration">5 classes/week</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="category-card">
+                        <div class="category-header"
+                            style="background: linear-gradient(135deg, #f72585 0%, #b5179e 100%);">
+                            <div class="category-icon">
+                                <i class="fas fa-language"></i>
+                            </div>
+                            <div class="category-title">
+                                <h3>Hindi</h3>
+                                <p>Learn India's national language</p>
+                            </div>
+                        </div>
+                        <div class="class-list">
+                            <div class="class-item">
+                                <div class="class-info">
+                                    <h4>Basic Hindi</h4>
+                                    <p><i class="fas fa-book-open"></i> Reading & writing</p>
+                                </div>
+                                <div class="class-price">
+                                    <div class="price">₹1,000/mo</div>
+                                    <div class="duration">3 classes/week</div>
+                                </div>
+                            </div>
+                            <div class="class-item">
+                                <div class="class-info">
+                                    <h4>Spoken Hindi</h4>
+                                    <p><i class="fas fa-comments"></i> Daily conversation</p>
+                                </div>
+                                <div class="class-price">
+                                    <div class="price">₹1,200/mo</div>
+                                    <div class="duration">3 classes/week</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="category-card">
+                        <div class="category-header"
+                            style="background: linear-gradient(135deg, #4cc9f0 0%, #4895ef 100%);">
+                            <div class="category-icon">
+                                <i class="fas fa-language"></i>
+                            </div>
+                            <div class="category-title">
+                                <h3>Regional Languages</h3>
+                                <p>Learn your mother tongue</p>
+                            </div>
+                        </div>
+                        <div class="class-list">
+                            <div class="class-item">
+                                <div class="class-info">
+                                    <h4>Tamil</h4>
+                                    <p><i class="fas fa-book-open"></i> Reading & writing</p>
+                                </div>
+                                <div class="class-price">
+                                    <div class="price">₹1,200/mo</div>
+                                    <div class="duration">3 classes/week</div>
+                                </div>
+                            </div>
+                            <div class="class-item">
+                                <div class="class-info">
+                                    <h4>Telugu</h4>
+                                    <p><i class="fas fa-comments"></i> Spoken Telugu</p>
+                                </div>
+                                <div class="class-price">
+                                    <div class="price">₹1,200/mo</div>
+                                    <div class="duration">3 classes/week</div>
+                                </div>
+                            </div>
+                            <div class="class-item">
+                                <div class="class-info">
+                                    <h4>Bengali</h4>
+                                    <p><i class="fas fa-book-open"></i> Reading & writing</p>
+                                </div>
+                                <div class="class-price">
+                                    <div class="price">₹1,200/mo</div>
+                                    <div class="duration">3 classes/week</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="view-all">
+                    <a href="#" class="btn">View All Language Programs</a>
+                </div>
+            </div>
+
+            <div id="skill" class="tab-content">
+                <!-- Skill development content would go here -->
+                <div class="class-categories">
+                    <div class="category-card">
+                        <div class="category-header"
+                            style="background: linear-gradient(135deg, #7209b7 0%, #560bad 100%);">
+                            <div class="category-icon">
+                                <i class="fas fa-laptop-code"></i>
+                            </div>
+                            <div class="category-title">
+                                <h3>Coding</h3>
+                                <p>Programming for all ages</p>
+                            </div>
+                        </div>
+                        <div class="class-list">
+                            <div class="class-item">
+                                <div class="class-info">
+                                    <h4>Python Basics</h4>
+                                    <p><i class="fas fa-code"></i> Beginner friendly</p>
+                                </div>
+                                <div class="class-price">
+                                    <div class="price">₹2,000/mo</div>
+                                    <div class="duration">3 classes/week</div>
+                                </div>
+                            </div>
+                            <div class="class-item">
+                                <div class="class-info">
+                                    <h4>Web Development</h4>
+                                    <p><i class="fas fa-globe"></i> HTML, CSS, JavaScript</p>
+                                </div>
+                                <div class="class-price">
+                                    <div class="price">₹2,500/mo</div>
+                                    <div class="duration">4 classes/week</div>
+                                </div>
+                            </div>
+                            <div class="class-item">
+                                <div class="class-info">
+                                    <h4>App Development</h4>
+                                    <p><i class="fas fa-mobile-alt"></i> Android & iOS</p>
+                                </div>
+                                <div class="class-price">
+                                    <div class="price">₹3,000/mo</div>
+                                    <div class="duration">4 classes/week</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="category-card">
+                        <div class="category-header"
+                            style="background: linear-gradient(135deg, #2ec4b6 0%, #1b9aaa 100%);">
+                            <div class="category-icon">
+                                <i class="fas fa-paint-brush"></i>
+                            </div>
+                            <div class="category-title">
+                                <h3>Creative Arts</h3>
+                                <p>Unleash your creativity</p>
+                            </div>
+                        </div>
+                        <div class="class-list">
+                            <div class="class-item">
+                                <div class="class-info">
+                                    <h4>Drawing & Painting</h4>
+                                    <p><i class="fas fa-palette"></i> All skill levels</p>
+                                </div>
+                                <div class="class-price">
+                                    <div class="price">₹1,500/mo</div>
+                                    <div class="duration">2 classes/week</div>
+                                </div>
+                            </div>
+                            <div class="class-item">
+                                <div class="class-info">
+                                    <h4>Digital Art</h4>
+                                    <p><i class="fas fa-tablet-alt"></i> Using modern tools</p>
+                                </div>
+                                <div class="class-price">
+                                    <div class="price">₹2,000/mo</div>
+                                    <div class="duration">3 classes/week</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="category-card">
+                        <div class="category-header"
+                            style="background: linear-gradient(135deg, #ff9f1c 0%, #ffbf69 100%);">
+                            <div class="category-icon">
+                                <i class="fas fa-brain"></i>
+                            </div>
+                            <div class="category-title">
+                                <h3>Soft Skills</h3>
+                                <p>Essential life skills</p>
+                            </div>
+                        </div>
+                        <div class="class-list">
+                            <div class="class-item">
+                                <div class="class-info">
+                                    <h4>Public Speaking</h4>
+                                    <p><i class="fas fa-microphone"></i> Confidence building</p>
+                                </div>
+                                <div class="class-price">
+                                    <div class="price">₹1,800/mo</div>
+                                    <div class="duration">2 classes/week</div>
+                                </div>
+                            </div>
+                            <div class="class-item">
+                                <div class="class-info">
+                                    <h4>Leadership Skills</h4>
+                                    <p><i class="fas fa-users"></i> Team management</p>
+                                </div>
+                                <div class="class-price">
+                                    <div class="price">₹2,000/mo</div>
+                                    <div class="duration">2 classes/week</div>
+                                </div>
+                            </div>
+                            <div class="class-item">
+                                <div class="class-info">
+                                    <h4>Time Management</h4>
+                                    <p><i class="fas fa-clock"></i> Productivity techniques</p>
+                                </div>
+                                <div class="class-price">
+                                    <div class="price">₹1,500/mo</div>
+                                    <div class="duration">2 classes/week</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="view-all">
+                    <a href="#" class="btn">View All Skill Programs</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Pricing Section -->
+    <section class="pricing">
+        <div class="container">
+            <div class="section-header">
+                <h2>Flexible Pricing Plans</h2>
+                <p>Choose the perfect plan that fits your learning needs and budget</p>
+            </div>
+
+            <div class="pricing-plans">
+                <div class="pricing-card">
+                    <h3 class="plan-name">Basic</h3>
+                    <div class="plan-price">₹999</div>
+                    <div class="plan-duration">per month</div>
+                    <ul class="plan-features">
+                        <li>4 classes per month</li>
+                        <li>1 subject focus</li>
+                        <li>Basic study materials</li>
+                        <li>Email support</li>
+                        <li>Monthly progress report</li>
+                    </ul>
+                    <a href="#" class="btn btn-outline">Choose Plan</a>
+                </div>
+
+                <div class="pricing-card popular">
+                    <h3 class="plan-name">Standard</h3>
+                    <div class="plan-price">₹2,499</div>
+                    <div class="plan-duration">per month</div>
+                    <ul class="plan-features">
+                        <li>12 classes per month</li>
+                        <li>2 subject focus</li>
+                        <li>Comprehensive materials</li>
+                        <li>Priority support</li>
+                        <li>Weekly progress reports</li>
+                        <li>Doubt clearing sessions</li>
+                    </ul>
+                    <a href="#" class="btn">Choose Plan</a>
+                </div>
+
+                <div class="pricing-card">
+                    <h3 class="plan-name">Premium</h3>
+                    <div class="plan-price">₹4,999</div>
+                    <div class="plan-duration">per month</div>
+                    <ul class="plan-features">
+                        <li>Unlimited classes</li>
+                        <li>All subjects access</li>
+                        <li>Premium study materials</li>
+                        <li>24/7 support</li>
+                        <li>Daily progress tracking</li>
+                        <li>Personal mentor</li>
+                        <li>Exam strategy sessions</li>
+                    </ul>
+                    <a href="#" class="btn btn-outline">Choose Plan</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section class="faq">
+        <div class="container">
+            <div class="section-header">
+                <h2>Frequently Asked Questions</h2>
+                <p>Find answers to common questions about our classes and programs</p>
+            </div>
+
+            <div class="faq-container">
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <span>How do I choose the right class for my child?</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>We offer free assessment tests to evaluate your child's current level and learning needs.
+                            Based on the results, our academic counselors will recommend the most suitable classes and
+                            tutors. You can also schedule a free demo class to experience our teaching methodology
+                            before enrolling.</p>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <span>What is the duration of each class?</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Our standard class duration is 60 minutes. However, for competitive exam preparation and
+                            advanced courses, we recommend 90-minute sessions. The duration can be customized based on
+                            the student's attention span and learning requirements.</p>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <span>Can we change the tutor if not satisfied?</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Absolutely. We offer a tutor replacement guarantee. If you're not satisfied with your tutor
+                            after the first 2 classes, you can request a change at no additional cost. We'll match you
+                            with another qualified tutor better suited to your learning style.</p>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <span>Do you provide study materials?</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Yes, all our programs include digital study materials curated by subject experts. For certain
+                            competitive exam preparations, we also provide physical books and practice papers. The study
+                            materials are regularly updated to match the latest syllabus and exam patterns.</p>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <span>What are the payment options available?</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>We accept all major payment methods including credit/debit cards, net banking, UPI (Google
+                            Pay, PhonePe, Paytm), and EMI options. You can pay monthly or opt for discounted
+                            quarterly/annual payment plans.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Call to Action -->
+    <section class="cta">
+        <div class="container">
+            <h2>Ready to Start Your Learning Journey?</h2>
+            <p>Join thousands of students across India who are achieving academic excellence with ShikshaSathi</p>
+            <a href="#" class="btn pulse">
+                <i class="fas fa-chalkboard-teacher"></i> Book a Free Demo Class
+            </a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <h3>ShikshaSathi</h3>
+                    <p>Empowering educators and students across India with quality education solutions since 2015.</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="#"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+
+                <div class="footer-col">
+                    <h3>Quick Links</h3>
+                    <ul class="footer-links">
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="about.html">About Us</a></li>
+                        <li><a href="classes.html">Classes</a></li>
+                        <li><a href="announcement.html">Announcements</a></li>
+                        <li><a href="guidance.html">Guidance</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-col">
+                    <h3>Programs</h3>
+                    <ul class="footer-links">
+                        <li><a href="#">School Curriculum</a></li>
+                        <li><a href="#">IIT-JEE Preparation</a></li>
+                        <li><a href="#">NEET Coaching</a></li>
+                        <li><a href="#">Commerce Programs</a></li>
+                        <li><a href="#">Language Courses</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-col">
+                    <h3>Contact Us</h3>
+                    <ul class="footer-links">
+                        <li><i class="fas fa-map-marker-alt"></i> 123 Education Street, New Delhi</li>
+                        <li><i class="fas fa-phone"></i> +91 98765 43210</li>
+                        <li><i class="fas fa-envelope"></i> info@shikshasathi.com</li>
+                        <li><i class="fas fa-clock"></i> Mon-Sat: 8am-8pm</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <p>&copy; 2023 ShikshaSathi. All Rights Reserved.</p>
+                <div class="powered-by">Powered by <a href="https://friendscampus.com" target="_blank">FriendsCampus</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile Navigation Toggle
+        const mobileToggle = document.querySelector('.mobile-toggle');
+        const nav = document.querySelector('nav');
+        const header = document.getElementById('header');
+
+        mobileToggle.addEventListener('click', () => {
+            nav.classList.toggle('active');
+            const icon = mobileToggle.querySelector('i');
+            if (nav.classList.contains('active')) {
+                icon.classList.remove('fa-bars');
+                icon.classList.add('fa-times');
+            } else {
+                icon.classList.remove('fa-times');
+                icon.classList.add('fa-bars');
+            }
+        });
+
+        // Header scroll effect
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 100) {
+                header.classList.add('header-scrolled');
+            } else {
+                header.classList.remove('header-scrolled');
+            }
+        });
+
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const targetId = this.getAttribute('href');
+                if (targetId === '#') return;
+
+                const targetElement = document.querySelector(targetId);
+                if (targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 80,
+                        behavior: 'smooth'
+                    });
+
+                    // Close mobile menu if open
+                    nav.classList.remove('active');
+                    const icon = mobileToggle.querySelector('i');
+                    icon.classList.remove('fa-times');
+                    icon.classList.add('fa-bars');
+                }
+            });
+        });
+
+        // Tab functionality for classes
+        const tabBtns = document.querySelectorAll('.tab-btn');
+        const tabContents = document.querySelectorAll('.tab-content');
+
+        tabBtns.forEach(btn => {
+            btn.addEventListener('click', () => {
+                // Remove active class from all buttons and contents
+                tabBtns.forEach(btn => btn.classList.remove('active'));
+                tabContents.forEach(content => content.classList.remove('active'));
+
+                // Add active class to clicked button
+                btn.classList.add('active');
+
+                // Show corresponding content
+                const tabId = btn.getAttribute('data-tab');
+                document.getElementById(tabId).classList.add('active');
+            });
+        });
+
+        // FAQ accordion functionality
+        const faqQuestions = document.querySelectorAll('.faq-question');
+
+        faqQuestions.forEach(question => {
+            question.addEventListener('click', () => {
+                const answer = question.nextElementSibling;
+                const isOpen = answer.classList.contains('show');
+
+                // Close all answers first
+                document.querySelectorAll('.faq-answer').forEach(ans => {
+                    ans.classList.remove('show');
+                });
+                document.querySelectorAll('.faq-question').forEach(q => {
+                    q.classList.remove('active');
+                });
+
+                // Open current answer if it was closed
+                if (!isOpen) {
+                    answer.classList.add('show');
+                    question.classList.add('active');
+                }
+            });
+        });
+
+        // Animation on scroll
+        const animateOnScroll = () => {
+            const elements = document.querySelectorAll('.category-card, .pricing-card, .faq-item');
+
+            elements.forEach(element => {
+                const elementPosition = element.getBoundingClientRect().top;
+                const screenPosition = window.innerHeight / 1.3;
+
+                if (elementPosition < screenPosition) {
+                    element.style.opacity = 1;
+                    element.style.transform = 'translateY(0)';
+                }
+            });
+        };
+
+        // Set initial state
+        document.querySelectorAll('.category-card, .pricing-card, .faq-item').forEach(el => {
+            el.style.opacity = 0;
+            el.style.transform = 'translateY(30px)';
+            el.style.transition = 'opacity 0.7s ease, transform 0.7s ease';
+        });
+
+        window.addEventListener('scroll', animateOnScroll);
+        // Trigger once on load
+        window.addEventListener('load', animateOnScroll);
+    </script>
+</body>
+
+</html>
