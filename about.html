@@ -851,6 +851,31 @@
                 gap: 15px;
                 text-align: center;
             }
+
+            .about-cta {
+                background: var(--gradient-accent);
+                color: white;
+                text-align: center;
+                padding: 25px 0;
+                clip-path: polygon(0 0%, 100% 0, 100% 100%, 0 100%);
+            }
+
+            footer {
+                background: var(--dark);
+                color: rgba(255, 255, 255, 0.8);
+                padding: 120px 0 40px;
+                position: relative;
+                clip-path: polygon(0 0%, 100% 0, 100% 100%, 0 100%);
+            }
+
+            .timeline-content {
+                width: calc(100% - 104px);
+                left: 120px !important;
+            }
+
+            .cta-buttons {
+                flex-direction: column;
+            }
         }
     </style>
 </head>
@@ -1139,7 +1164,7 @@
             <h2>Join the ShikshaSathi Community</h2>
             <p>Whether you're a student seeking guidance or an educator looking to make an impact, we'd love to have you
                 on board</p>
-            <div style="display: flex; gap: 20px; justify-content: center;">
+            <div style="display: flex; gap: 20px; justify-content: center;" class="cta-buttons">
                 <a href="#" class="btn" style="background: white; color: var(--primary);">
                     <i class="fas fa-user-graduate"></i> I'm a Student
                 </a>
