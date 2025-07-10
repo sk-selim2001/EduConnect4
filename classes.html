@@ -79,7 +79,7 @@
             justify-content: center;
             background: var(--gradient-secondary);
             color: white;
-            padding: 14px 36px;
+            padding: 8px 28px;
             border-radius: 50px;
             text-decoration: none;
             font-weight: 600;
@@ -282,7 +282,7 @@
 
         /* Page Banner */
         .page-banner {
-            background: linear-gradient(135deg, rgba(67, 97, 238, 0.95) 0%, rgba(58, 12, 163, 0.9) 100%), url('https://images.unsplash.com/photo-1523050854058-8df90110c9f1?ixlib=rb-4.0.3&auto=format&fit=crop&w=1950&q=80');
+            background: linear-gradient(135deg, rgba(67, 97, 238, 0.95) 0%, rgba(58, 12, 163, 0.9) 100%);
             background-size: cover;
             background-position: center;
             height: 400px;
@@ -292,10 +292,15 @@
             position: relative;
             overflow: hidden;
             margin-top: 80px;
-            clip-path: polygon(0 0, 100% 0, 100% 90%, 0 100%);
+            /* clip-path: polygon(0 0, 100% 0, 100% 90%, 0 100%); */
+            --mask:
+                radial-gradient(89.44px at 50% calc(100% - 120px), #000 99%, #0000 101%) calc(50% - 80px) 0/160px 100%,
+                radial-gradient(89.44px at 50% calc(100% + 80px), #0000 99%, #000 101%) 50% calc(100% - 40px)/160px 100% repeat-x;
+            -webkit-mask: var(--mask);
+            mask: var(--mask);
         }
 
-        .page-banner:after {
+        /* .page-banner:after {
             content: '';
             position: absolute;
             bottom: 0;
@@ -306,7 +311,7 @@
             background-size: cover;
             background-position: bottom;
             z-index: 1;
-        }
+        } */
 
         .banner-content {
             max-width: 800px;
@@ -676,8 +681,8 @@
             background: var(--gradient-accent);
             color: white;
             text-align: center;
-            padding: 120px 0;
-            clip-path: polygon(0 15%, 100% 0, 100% 85%, 0 100%);
+            padding: 50px 0;
+            /* clip-path: polygon(0 15%, 100% 0, 100% 85%, 0 100%); */
             position: relative;
             overflow: hidden;
         }
@@ -727,9 +732,9 @@
         footer {
             background: var(--dark);
             color: rgba(255, 255, 255, 0.8);
-            padding: 120px 0 40px;
+            padding: 50px 0 40px;
             position: relative;
-            clip-path: polygon(0 10%, 100% 0, 100% 100%, 0 100%);
+            /* clip-path: polygon(0 10%, 100% 0, 100% 100%, 0 100%); */
         }
 
         .footer-grid {
@@ -981,17 +986,17 @@
                     <li><a href="index.html">Home</a></li>
                     <li><a href="about.html">About</a></li>
                     <li><a href="classes.html" class="active">Classes</a></li>
-                    <li><a href="announcement.html">Announcements</a></li>
-                    <li><a href="guidance.html">Guidance</a></li>
+                    <li><a href="events.html">Events</a></li>
+                    <li><a href="results.html">Results</a></li>
                     <li><a href="contact.html">Contact</a></li>
                     <li class="mobile-btn">
-                        <a href="#" class="btn btn-outline">Book Demo</a>
+                        <a href="#" class="btn btn-outline"> <i class="fa-solid fa-phone"></i> +91 12345 67890</a>
                     </li>
                 </ul>
             </nav>
 
             <div class="header-btns">
-                <a href="#" class="btn btn-outline">Book Demo</a>
+                <a href="#" class="btn btn-outline"> <i class="fa-solid fa-phone"></i> +91 12345 67890</a>
             </div>
         </div>
     </header>
@@ -1720,10 +1725,11 @@
                     <p>Empowering educators and students across India with quality education solutions since 2015.</p>
                     <div class="social-links">
                         <a href="#"><i class="fab fa-facebook-f"></i></a>
-                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <!-- <a href="#"><i class="fab fa-twitter"></i></a> -->
                         <a href="#"><i class="fab fa-instagram"></i></a>
                         <a href="#"><i class="fab fa-linkedin-in"></i></a>
-                        <a href="#"><i class="fab fa-youtube"></i></a>
+                        <a href="#"><i class="fa-solid fa-envelope"></i></a>
+                        <!-- <a href="#"><i class="fab fa-youtube"></i></a> -->
                     </div>
                 </div>
 
